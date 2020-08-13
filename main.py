@@ -20,6 +20,10 @@ class Person(BaseModel):
 
 db.create_tables([Person])
 
-# test = Person(first_name="John", last_name="Doe",
-#               phone="1234567890", email="john.doe@company.com")
-# test.save()
+naira = Person(first_name="Naira", last_name="Reyes",
+               phone="2350985467", email="naira.reyes@company.com")
+naira.save()
+
+# Person.get(Person.first_name == 'John')
+# grabbing_test = Person.get(Person.first_name == 'John')
+# print(grabbing_test.first_name)
