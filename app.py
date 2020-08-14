@@ -26,30 +26,30 @@ def menu():
                       phone=f'{contact_phone}', email=f'{contact_email}')
         print(f"{contact_name} has been added to your contacts.")
 
-    # def update_contacts():
-    #     update_info = input("Firstname: ")
-    #     update_field = input(f'''Which field would you like to update:
-    #     1. Firstname
-    #     2. Lastname
-    #     3. Phone
-    #     4. Email
-    #     Input selection: ''')
-    #     new_value = input(f'Input new value: ')
-    #     if update_field == '1':
-    #         value_field = "first_name"
-    #     if update_field == '2':
-    #         value_field = "last_name"
-    #     if update_field == '3':
-    #         value_field = phone
-    #     if update_field == '4':
-    #         value_field = "email"
-    #     else:
-    #         print("Input error")
-    #         update_contacts()
+    def update_contacts():
+        update_info = input("Firstname: ")
+        update_field = input(f'''Which field would you like to update:
+        1. Firstname
+        2. Lastname
+        3. Phone
+        4. Email
+        Input selection: ''')
+        new_value = input(f'Input new value: ')
+        if update_field == '1':
+            value_field = "first_name"
+        if update_field == '2':
+            value_field = "last_name"
+        if update_field == '3':
+            value_field = phone
+        if update_field == '4':
+            value_field = "email"
+        else:
+            print("Input error")
+            update_contacts()
 
-    #     to_update = Person.get(Person.first_name == f"{update_info}")
-    #     to_update.f'{value_field}' = f'{new_value}'
-    #     to_update.save()
+        to_update = Person.get(Person.first_name == f"{update_info}")
+        to_update.f'{value_field}' = f'{new_value}'
+        to_update.save()
 
     def delete_contact():
         delete_data = input(
@@ -68,7 +68,7 @@ def menu():
                        2. Find using firstname
                        3. Add
                        4. Update
-                       5. Delete
+                       5. Delete using firstname
                        6. Exit
                        Input Selection: ''')
     if user_input == '1':
@@ -80,8 +80,8 @@ def menu():
     elif user_input == '3':
         add_contacts()
         menu()
-    # elif user_input == '4':
-    #     update_contacts()
+    elif user_input == '4':
+        update_contacts()
     elif user_input == '5':
         delete_contact()
     elif user_input == '6':
