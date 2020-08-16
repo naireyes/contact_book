@@ -35,21 +35,25 @@ def menu():
         4. Email
         Input selection: ''')
         new_value = input(f'Input new value: ')
+        value_field = ""
         if update_field == '1':
-            value_field = "first_name"
+            to_update = (Person.update(first_name=f'{new_value}')
+                         .where((Person.first_name == f'{update_info}'))
+                         .execute())
         if update_field == '2':
-            value_field = "last_name"
+            to_update = (Person.update(last_name=f'{new_value}')
+                         .where((Person.first_name == f'{update_info}'))
+                         .execute())
         if update_field == '3':
-            value_field = phone
+            to_update = (Person.update(phone=f'{new_value}')
+                         .where((Person.first_name == f'{update_info}'))
+                         .execute())
         if update_field == '4':
-            value_field = "email"
-        else:
-            print("Input error")
-            update_contacts()
+            to_update = (Person.update(email=f'{new_value}')
+                         .where((Person.first_name == f'{update_info}'))
+                         .execute())
 
-        to_update = Person.get(Person.first_name == f"{update_info}")
-        to_update.f'{value_field}' = f'{new_value}'
-        to_update.save()
+        print(f"{update_info}'s information has been updated.")
 
     def delete_contact():
         delete_data = input(
